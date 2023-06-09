@@ -1,0 +1,69 @@
+---
+permalink: deploy/task_clean_the_vsphere_cached_downloaded_plug_in_packages.html 
+sidebar: sidebar 
+keywords: clean up browser cache 
+summary: 如果在部署或升級ONTAP 完整套工具之後、外掛程式並未自動更新、您應該在瀏覽器和vCenter Server上清理快取的下載外掛程式套件、以解決vCenter Server外掛程式問題。 
+---
+= 清除vSphere快取下載的外掛程式套件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在部署或升級ONTAP 完整套工具之後、外掛程式並未自動更新、您應該在瀏覽器和vCenter Server上清理快取的下載外掛程式套件、以解決vCenter Server外掛程式問題。
+
+*步驟*
+
+. 從現有vSphere Web用戶端或vSphere Client登出。
+. 移除瀏覽器快取。
+. 移除vSphere Client快取外掛程式套件。
++
+|===
+
+
+| *如果您正在使用...* | *執行下列...* 
+
+
+ a| 
+Windows vCenter伺服器
+ a| 
+移除下列資料夾 `com.netapp.vasa.vvol.webclient-x.x.x.xxxx`、 `com.netapp.nvpf.webclient-x.x.x.xxxx`和 `com.netapp.vsch5-x.x.x.xxxx` 位於：
+
+** vSphere Web Client 路徑： `C:\ProgramData\VMware\vCenterServer\cfg\vsphere-client\vc-packages\vsphere-client-serenity`
+** vSphere Client （ HTML5 ）路徑： `C:\ProgramData\VMware\vCenterServer\cfg\vsphere-ui\vc-packages\vsphere-client-serenity`
+
+
+
+
+ a| 
+VCSA
+ a| 
+.. SSH加入VCSA應用裝置。
+.. 使用變更目錄至 vCenter Web 用戶端 UI 擴充目錄 `cd /etc/vmware/vsphere-client/vc-packages/vsphere-client-serenity`
+.. 使用移除 NetApp 特有的快取外掛程式套件 `rm -rf` 命令：
+範例：此處為您外掛程式的版本。
+---
+ RM -RF com.netapp.vasa.vvol.webclient-x.x.x.xxxx
+ RM -RF com.netapp.nvpf.webclient-x.x.x.xxxx
+ RM -RF com.netapp.vsch5-x.x.x.xxxx
+---
+.. 使用變更目錄至 vCenter 用戶端（ HTML5 ） UI 副檔名目錄 `cd /etc/vmware/vsphere-client/vc-packages/vsphere-client-serenity`
+.. 使用移除 NetApp 外掛程式特有的快取外掛程式套件 `rm -rf` 命令：
+範例：此處為您外掛程式的版本
+ ---
+RM -RF com.netapp.vasa.vvol.webclient-x.x.x.xxxx
+RM -RF com.netapp.nvpf.webclient-x.x.x.xxxx
+RM -RF com.netapp.vsch5-x.x.x.xxxx
+ ---
+
+
+|===
+. 使用下列命令登入vSphere、然後重新啟動vSphere Web用戶端和vSphere Client服務：
++
+[listing]
+----
+service-control --stop vsphere-client vsphere-ui
+service-control --start vsphere-client vsphere-ui
+----
+
