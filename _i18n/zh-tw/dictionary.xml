@@ -107,34 +107,9 @@
   <block id="629c3602e821ea228948769460d948fb" category="doc">清除vSphere快取下載的外掛程式套件</block>
   <block id="2486f16fb02b577c6c3375ba9a93762d" category="paragraph">如果在部署或升級ONTAP 完整套工具之後、外掛程式並未自動更新、您應該在瀏覽器和vCenter Server上清理快取的下載外掛程式套件、以解決vCenter Server外掛程式問題。</block>
   <block id="4839d2f25cc35b249d5db15efa1afd75" category="paragraph">*步驟*</block>
-  <block id="928a0fc17a8823d170fddc579679a74b" category="list-text">從現有vSphere Web用戶端或vSphere Client登出。</block>
   <block id="a0616a23fd099dfad3eb5032733a31a3" category="list-text">移除瀏覽器快取。</block>
-  <block id="a81218cfa1b12253d3738424f7fe41f1" category="list-text">移除vSphere Client快取外掛程式套件。</block>
-  <block id="d3f8fbc38c70102f80ae8f7fad51a2ba" category="cell">*如果您正在使用...*</block>
   <block id="a8ec31e018bc514e0369f015f6ef9156" category="cell">*執行下列...*</block>
-  <block id="6022f5a040dd9eabb5e196140c0a3837" category="paragraph">Windows vCenter伺服器</block>
-  <block id="08ade16156fae5f96326f33fb911645a" category="paragraph">移除下列資料夾<block ref="86cd6cbd9d0d47d7701fb50d3f70f725" prefix=" " category="inline-code"></block>、<block ref="1581668028da892face35824bf9266d3" prefix=" " category="inline-code"></block>和<block ref="35fc60e3d9ae3cc80b3a81a17eaab868" prefix=" " category="inline-code"></block> 位於：</block>
-  <block id="c50bfe91c2a67370ca4e01f0fbcaa60b" category="list-text">vSphere Web Client 路徑：<block ref="c0fbb42d44e85481a39b542554c38c99" prefix=" " category="inline-code"></block></block>
-  <block id="dd286c989dcb346e3dcbcdcffb367513" category="list-text">vSphere Client （ HTML5 ）路徑：<block ref="4cf617a45d429a3b37bec630c8f82740" prefix=" " category="inline-code"></block></block>
-  <block id="32b6ae27b932f6df4adc3773921186b2" category="paragraph">VCSA</block>
   <block id="7828ebc558b735f6dff95945a2060819" category="list-text">SSH加入VCSA應用裝置。</block>
-  <block id="c2893b865600d46b6cf4853c3e95aaef" category="list-text">使用變更目錄至 vCenter Web 用戶端 UI 擴充目錄<block ref="75825b06e1ee39dd4ad04d42ac5347a5" prefix=" " category="inline-code"></block></block>
-  <block id="c967b27fa47f0711ff8f4f94f6001d1c" category="list-text">使用移除 NetApp 特有的快取外掛程式套件<block ref="373d5cc730dd449760c437daf3d5a6d5" prefix=" " category="inline-code"></block> 命令：
-範例：此處為您外掛程式的版本。
----
- RM -RF com.netapp.vasa.vvol.webclient-x.x.x.xxxx
- RM -RF com.netapp.nvpf.webclient-x.x.x.xxxx
- RM -RF com.netapp.vsch5-x.x.x.xxxx
----</block>
-  <block id="58068878d43aa1275186e320e39c8f61" category="list-text">使用變更目錄至 vCenter 用戶端（ HTML5 ） UI 副檔名目錄<block ref="75825b06e1ee39dd4ad04d42ac5347a5" prefix=" " category="inline-code"></block></block>
-  <block id="e8472057a9b51ca61b841e7cba26f994" category="list-text">使用移除 NetApp 外掛程式特有的快取外掛程式套件<block ref="373d5cc730dd449760c437daf3d5a6d5" prefix=" " category="inline-code"></block> 命令：
-範例：此處為您外掛程式的版本
- ---
-RM -RF com.netapp.vasa.vvol.webclient-x.x.x.xxxx
-RM -RF com.netapp.nvpf.webclient-x.x.x.xxxx
-RM -RF com.netapp.vsch5-x.x.x.xxxx
- ---</block>
-  <block id="04817d905fd962e9edfde7e6036e0241" category="list-text">使用下列命令登入vSphere、然後重新啟動vSphere Web用戶端和vSphere Client服務：</block>
   <block id="6f09e89fc23fe62b14a19eb0d48c896b" category="summary">9.x版ONTAP VMware vSphere支援的VMware vSphere支援將就地升級至最新版本。</block>
   <block id="bdb4f545119e3b74433b33e690e61b23" category="paragraph">ONTAP 工具等舊版個別應用程式使用不同的升級程序。如果您的設定中已安裝VSC或VASA Provider或SRA、則應執行下列作業：</block>
   <block id="0aed96d12200abba996f178b4112706d" category="list-text">部署ONTAP 最新版的VMware工具。</block>
@@ -1930,4 +1905,13 @@ vVols虛擬機器摘要報告功能表提供所有使用SAN vVols資料存放區
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="bdc5a4ba1115f3f724e1f81e7f41eeef" category="list-text">在資料存放區上按一下滑鼠右鍵、然後選取 * NetApp ONTAP tools* &gt; * Resize non-vVols datastore* 。</block>
+  <block id="bec4fe8b0a1c02393fd0700875750a56" category="list-text">從現有的 vSphere Web 用戶端或 vSphere UI 登出。</block>
+  <block id="fae0172133f0506cbb207e15e1eb4aef" category="list-text">移除vSphere Client快取外掛程式套件。對於 VCSA 、請執行下列步驟：</block>
+  <block id="a8f3b27f04ef4962a5caf70a06ae28fb" category="list-text">停止 VMware vSphere Client 服務：<block ref="4ad331c0aae87e53252a4e9c0fb7b3fe" prefix=" " category="inline-code"></block></block>
+  <block id="2096eb0aa64e2928992af27ac4402e59" category="list-text">將目錄變更為 vCenter 用戶端 UI 副檔名目錄：<block ref="877ddb80b516a509c7c154978a1ff7ee" prefix=" " category="inline-code"></block></block>
+  <block id="dc37c1c22c04fc5e7386e3092519eac8" category="list-text">使用移除 NetApp 特有的快取外掛程式套件<block ref="373d5cc730dd449760c437daf3d5a6d5" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="ea51a159279a27e3f4ac4547881ff688" category="paragraph"><block ref="91fa5c8593259f0cb6f0845470d72256" prefix="" category="inline-code"></block></block>
+  <block id="5e9e6efcbe65718c4f8940b263317a69" category="paragraph"><block ref="7f4891afcb11aecd70e2cfd4c1573829" prefix="" category="inline-code"></block></block>
+  <block id="5547d8d27b62c49e4555e1f79122a342" category="paragraph"><block ref="9e427bf42ac054021120757914ef1809" prefix="" category="inline-code"></block></block>
+  <block id="b8ace162f3094fd5ac1138ced112d7a7" category="list-text">啟動 VMware vSphere Client 服務：<block ref="bfbe7f4b006f6fcfc7bb66e075309067" prefix=" " category="inline-code"></block></block>
 </blocks>
